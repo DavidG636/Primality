@@ -9,7 +9,8 @@ $(function() {
   }
 
   $('.submit').click(function () {
-    console.log(isPrime(12));
+    let number = $('.textInput').val();
+    console.log(isPrime(number));
   });
 
 
