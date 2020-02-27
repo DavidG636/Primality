@@ -1,4 +1,22 @@
 $(function() {
+  $(".textInput").keypress(function(e) {
+    //Enter key
+    if (e.which == 13) {
+      e.preventDefault();
+      move();
+    }
+
+    let letterKeyCodes = [];
+
+    for (i = 48; i < 58; i++) {
+        letterKeyCodes.push(i);
+    }
+
+    if (!(letterKeyCodes.indexOf(e.which)>=0)) {
+        e.preventDefault();
+    }
+  });
+
   function isPrime(num) {
     let number = new Number(num);
     let bool = true;
@@ -35,13 +53,12 @@ $(function() {
     move();
   });
 
-  function showOutput () {
+  function showOutput() {
     $('#myBar').css('display', 'none');
     $('.primeOrNot').css('display', 'block');
-    if (isPrime($('.textInput').val())){
-        $('.primeOrNot').html('It Is Prime!');
-    }
-    else {
+    if (isPrime($('.textInput').val())) {
+      $('.primeOrNot').html('It Is Prime!');
+    } else {
       $('.primeOrNot').html('It Is Not Prime!');
     }
   }
